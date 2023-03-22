@@ -2,7 +2,7 @@
 
 ## 1.1 Project Overview
 
-The ABN Meal App Backend is a project created as part of the interview process to showcase the developer's skills. The project has limited features and its main objective is to retrieve data from the open weather map API.
+The ABN Meal App Backend is a project created as part of the interview process to showcase the developer's skills. The project has limited features and its main objective is to retrieve data from The Meal DB API.
 
 The project is built using Nestjs and TypeScript technologies. The project also makes use of one external API, which is The Meal DB API.
 
@@ -15,54 +15,6 @@ This is the directory structure:
 ```
 .
 ├── README.md
-├── dist
-│   ├── app.controller.d.ts
-│   ├── app.controller.js
-│   ├── app.controller.js.map
-│   ├── app.module.d.ts
-│   ├── app.module.js
-│   ├── app.module.js.map
-│   ├── app.service.d.ts
-│   ├── app.service.js
-│   ├── app.service.js.map
-│   ├── main.d.ts
-│   ├── main.js
-│   ├── main.js.map
-│   ├── meal
-│   │   ├── dto
-│   │   │   ├── search-meals.dto.d.ts
-│   │   │   ├── search-meals.dto.js
-│   │   │   └── search-meals.dto.js.map
-│   │   ├── meal.controller.d.ts
-│   │   ├── meal.controller.js
-│   │   ├── meal.controller.js.map
-│   │   ├── meal.module.d.ts
-│   │   ├── meal.module.js
-│   │   ├── meal.module.js.map
-│   │   ├── meal.service.d.ts
-│   │   ├── meal.service.js
-│   │   ├── meal.service.js.map
-│   │   └── themealdb
-│   │       ├── themealdb-api-config.service.d.ts
-│   │       ├── themealdb-api-config.service.js
-│   │       ├── themealdb-api-config.service.js.map
-│   │       ├── themealdb-api.service.d.ts
-│   │       ├── themealdb-api.service.js
-│   │       └── themealdb-api.service.js.map
-│   ├── models
-│   │   ├── Meal.d.ts
-│   │   ├── Meal.js
-│   │   └── Meal.js.map
-│   ├── tsconfig.build.tsbuildinfo
-│   └── util
-│       ├── cors
-│       │   ├── enable-cors-whitelist.d.ts
-│       │   ├── enable-cors-whitelist.js
-│       │   └── enable-cors-whitelist.js.map
-│       └── error-handlers
-│           ├── error-handler.d.ts
-│           ├── error-handler.js
-│           └── error-handler.js.map
 ├── nest-cli.json
 ├── package-lock.json
 ├── package.json
@@ -161,7 +113,8 @@ Set up environment variables for your API key and port.
 MEAL_API_KEY = '1'
 MEAL_API_BASE_URL = 'https://www.themealdb.com/api/json/v1'
 BACKEND_PORT = '5555'
-FRONTEND_URL = 'http://localhost:3000'
+FRONTEND_URL_DEV = 'http://localhost:3000'
+FRONTEND_URL_PROD = 'http://localhost:4173'
 
 ```
 
@@ -171,7 +124,7 @@ To start the application, use the following commands:
 
 ```bash
 npm run build
-npm run start
+npm run start:prod
 ```
 
 The application should now be running on the port specified in the environment variables.
@@ -182,7 +135,7 @@ The ABN Meal App provides a RESTful API for retrieving data from the Meal DB API
 
 ## 3.1 Swagger Documentation
 
-Swagger documentation for the API has been setup and is accessible by visiting https://localhost:5555/api. The Swagger documentation provides a detailed view of the available endpoints, the request and response parameters, and the expected HTTP status codes. It also provides a convenient way to test the API endpoints directly from the documentation.
+Swagger documentation for the API has been setup and is accessible by visiting http://localhost:5555/api. The Swagger documentation provides a detailed view of the available endpoints, the request and response parameters, and the expected HTTP status codes. It also provides a convenient way to test the API endpoints directly from the documentation.
 
 # Chapter 4: Technical Architecture and Design Pattern
 
@@ -204,11 +157,12 @@ Quality assurance is a critical aspect of software development and the ABN Meal 
 
 ## 5.2 Test Coverage
 
-The project has a comprehensive test suite that covers all the main functionality of the app, including the controllers and services.
+The project has a test suite that covers some of the functionality of the app, including the controllers and the utility functions.
 
 TO DO:
 
 - E2E Tests
+- Service tests
 - Automate tests with precommit hook
 
 ## 5.3 Tools and Frameworks
