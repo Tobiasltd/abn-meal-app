@@ -6,7 +6,6 @@ import {
   HttpException,
   HttpCode,
   Param,
-  Logger,
 } from '@nestjs/common';
 import { ApiTags, ApiResponse, ApiQuery } from '@nestjs/swagger';
 import { Meal } from 'src/models/Meal';
@@ -104,7 +103,6 @@ export class MealController {
   }> {
     try {
       const meals = await this.mealService.searchMeals(searchMealsDto);
-      Logger.log(meals);
       return {
         statusCode: HttpStatus.OK,
         message: 'Meals successfully retrieved',
